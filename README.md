@@ -1,5 +1,7 @@
 # Artificial-Subconscious
 
+![Cover Image](media/cover_img.png)
+
 ## Overview
 **Artificial-Subconscious** is an innovative system designed to simulate a subconscious-like process within an AI. Inspired by human cognition, this model processes raw inputs (noise), extracts meaningful insights, generates hypothetical scenarios, and evaluates them for relevance and risk. The ultimate goal is to enhance decision-making and adaptability in artificial intelligence systems, bridging the gap between human-like intuition and computational precision.
 
