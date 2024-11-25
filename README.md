@@ -1,4 +1,4 @@
-# Artificial-Subconscious for AGI
+# Artificial-Subconscious for AGI (Under Construction)
 
 ![Cover Image](media/cover_img.png)
 
