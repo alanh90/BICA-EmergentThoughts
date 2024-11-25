@@ -16,9 +16,9 @@ A multi-layered approach to simulate subconscious thought processes:
   - Random noise.
   - Relevant memory data related to the current situation.
 
-   \[
+   $$
   N(x, y, z) = R(x, y, z) + M(x, y, z)
-  \]
+  $$
 
 
 - Noise includes **valleys** and **peaks** to prioritize:
