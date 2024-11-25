@@ -12,7 +12,6 @@ $$
 Inspired by human cognition, this model processes raw inputs (noise), extracts meaningful insights, generates hypothetical scenarios, and evaluates them for relevance and risk. The ultimate goal is to enhance decision-making and adaptability in artificial intelligence systems, bridging the gap between human-like intuition and computational precision.
 
 Primary objective:
-
 $$
 \text{Goal} = \text{Maximize Adaptability} + \text{Enhance Decision Precision}
 $$
@@ -32,150 +31,109 @@ A multi-layered approach to simulate subconscious thought processes:
   - **Peaks:** Previous data with successful outcomes or benefits
   - **Valleys:** Data associated with negative consequences or risks
 
-Key formulas:
-
+Key formula:
 $$
-N(x, y, z) = R(x, y, z) + M(x, y, z)
+N = Random + Memory_{weighted}
 $$
 
-where:
-- $R(x, y, z) \sim U(a, b)$: Uniformly distributed random noise
-- $M(x, y, z)$: Memory-retrieved data prioritized by:
-
-$$ M(x, y, z) = w_i · Success_{past} - v_i · Risk_{past} $$
-
-Peaks and valleys in the noise field are defined as:
-
+Where memory weighting considers past successes and risks:
 $$
-S_{\text{peak}} = \text{max}(N(x, y, z)), \quad S_{\text{valley}} = \text{min}(N(x, y, z))
+Memory_{weighted} = Success_{weight} * Past_{success} - Risk_{weight} * Past_{risk}
 $$
 
 #### **Layer 2: Identification of Useful Data**
-Semi-random data points are extracted:
+- Selects semi-random data points from Layer 1, including:
+  - The highest peaks
+  - Random noise around the peaks (for creativity)
+  - The lowest valleys (for risk awareness)
+- Introduces new random data related to the selected points as background noise
 
+Pattern importance is calculated as:
 $$
-D = \{ S_{\text{peak}}, S_{\text{valley}}, \epsilon \}
+Value_{pattern} = \frac{Benefit_{historical}}{1 + Risk_{historical}}
 $$
-
-where $\epsilon \sim \mathcal{N}(0, \sigma^2)$ introduces randomness. Each point is weighted by:
-
-$$
-w_i = \frac{e^{\beta S_i}}{\sum_{j} e^{\beta S_j}}
-$$
-
-where:
-- $\beta$: Sensitivity scaling parameter
-- $S_i$: Relevance score
 
 #### **Layer 3: Hypothetical Scenario Creation**
-Scenarios are generated as:
+- Creates scenarios based on insights from Layer 2:
+  - **High-benefit scenarios**
+  - **High-risk scenarios** (to explore potential dangers)
+  - **Random scenarios** (for creative problem-solving)
 
+Each scenario is evaluated using:
 $$
-S_i = \{ x_j + \epsilon_j : x_j \in D, \epsilon_j \sim \mathcal{N}(0, \sigma^2) \}
-$$
-
-and evaluated by the benefit-risk function:
-
-$$
-B_r(S_i) = \alpha \cdot B(S_i) - \gamma \cdot R(S_i)
+Benefit_{risk} = \alpha * Benefit - \gamma * Risk
 $$
 
 where:
-- $B(S_i)$: Expected benefit
-- $R(S_i)$: Associated risk
-- $\alpha, \gamma$: Importance weights
+- $\alpha$: Benefit weight
+- $\gamma$: Risk weight
 
 #### **Layer 4: Probability-Based Sorting**
-The sorting function ranks scenarios as:
+- Consolidates scenarios with common patterns
+- Selects the **top N scenarios** and the **worst high-risk scenarios**
+- Integrates **memory** to apply a probability-based sorting mechanism using past experiences
 
+Scenario ranking:
 $$
-P(S_i) = \frac{e^{\lambda B_r(S_i)}}{\sum_{j} e^{\lambda B_r(S_j)}}
+Rank = \frac{Value * Success_{historical}}{Risk_{factor}}
 $$
-
-where $\lambda$ controls the impact of $B_r(S_i)$.
 
 #### **Layer 5: Final Scenario Selection**
-The top $N$ scenarios are selected as:
-
+- Outputs the top N scenarios for the rest of the AI system to process and act upon
+- Final selection considers both value and diversity:
 $$
-S_{\text{final}} = \text{TopN}(S, P(S))
+Selection_{score} = Value_{scenario} * Diversity_{factor}
 $$
 
 ### **2. Dynamic Scenario Generation**
-Scenarios evolve based on the Markov process:
+- Generates multiple possible futures or outcomes based on current inputs
+- Evaluates scenarios to optimize benefits for the AI's current objectives
 
+Evolution of scenarios:
 $$
-x_{t+1} = f(x_t) + \eta_t
-$$
-
-where:
-- $f(x_t)$: Transition function for system state
-- $\eta_t \sim \mathcal{N}(0, \sigma^2)$: Randomness at time $t$
-
-Expected outcomes are calculated using Monte Carlo methods:
-
-$$
-E(O) = \frac{1}{N} \sum_{i=1}^N f(S_i, X)
+Next_{state} = Current_{state} + Learning + Randomness_{controlled}
 $$
 
 ### **3. Risk and Benefit Analysis**
-Probabilities are refined through Bayesian updates:
+- Integrates risky or unconventional scenarios to expand decision-making options
+- Assesses scenarios based on probability and historical occurrence for adaptive responses
 
+Risk evaluation:
 $$
-P(O | S_i) = \frac{P(S_i | O) \cdot P(O)}{P(S_i)}
-$$
-
-and the final risk-benefit ratio is given by:
-
-$$
-R_b(S_i) = \frac{B(S_i)}{1 + R(S_i)}
+Risk_{total} = Risk_{current} * (1 + Uncertainty_{factor})
 $$
 
 ## Use Cases
 
 ### **1. Autonomous Systems**
-Adaptability in real-time decision-making is modeled as:
-
+- Enhancing adaptability and risk awareness in real-time decision-making
+- Environmental adaptation through:
 $$
-dx_t = f(x_t, t) dt + g(x_t, t) dW_t
+Response_{adaptive} = Base_{response} * Environment_{factor}
 $$
-
-where:
-- $dx_t$: Change in state
-- $g(x_t, t)$: Diffusion term introducing environmental randomness
-- $dW_t$: Wiener process
 
 ### **2. Strategic AI**
-Simulated outcomes follow:
-
+- Simulating multiple outcomes for complex problem-solving
 $$
-O = \frac{1}{N} \sum_{i=1}^N f(S_i, X)
+Strategy = \frac{1}{N} \sum (Scenarios * Probabilities)
 $$
 
 ### **3. Creative AI**
-Scenarios are generated using variational autoencoders:
-
+- Generating imaginative or unconventional scenarios
 $$
-p(S | z) = p(S) \cdot q(z | S)
+Ideas = Base_{knowledge} + Novel_{patterns} * Creativity_{factor}
 $$
-
-where:
-- $z$: Latent space representation
 
 ### **4. Risk Management**
-Dynamic risk balancing adjusts weights as:
-
+- Balancing opportunities and dangers in critical applications
 $$
-\text{Risk}_{\text{new}} = \text{Risk}_{\text{current}} \cdot (1 + \eta)
+Risk_{adaptive} = Base_{risk} * Environment_{factor} * Safety_{margin}
 $$
-
-where $\eta \sim \mathcal{N}(0, \sigma^2)$
 
 ## Why Artificial-Subconscious?
-The project enhances AI adaptability, creativity, and intuition by incorporating a layered mathematical framework:
-
+The project enhances AI capabilities through:
 $$
-\text{AI}_{\text{adaptive}} = f(\text{SubConsciousLayer})
+AI_{enhanced} = Base_{AI} + Subconscious_{layer}
 $$
 
 This project aims to provide AI systems with a "subconscious" layer that operates beneath conscious decision-making, offering:
