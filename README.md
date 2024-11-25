@@ -14,7 +14,7 @@ Inspired by human cognition, this model processes raw inputs (noise), extracts m
 Primary objective:
 
 $$
-\text{Goal} = \text{Maximize Adaptability} + \text{Enhance Decision Precision}
+\text{Goal} = \text{Maximize}(\alpha \cdot Adaptability + \beta \cdot Decision_{precision})
 $$
 
 ## Key Features
