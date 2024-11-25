@@ -12,6 +12,7 @@ $$
 Inspired by human cognition, this model processes raw inputs (noise), extracts meaningful insights, generates hypothetical scenarios, and evaluates them for relevance and risk. The ultimate goal is to enhance decision-making and adaptability in artificial intelligence systems, bridging the gap between human-like intuition and computational precision.
 
 Primary objective:
+
 $$
 \text{Goal} = \text{Maximize Adaptability} + \text{Enhance Decision Precision}
 $$
@@ -32,11 +33,13 @@ A multi-layered approach to simulate subconscious thought processes:
   - **Valleys:** Data associated with negative consequences or risks
 
 Key formula:
+
 $$
 N = Random + Memory_{weighted}
 $$
 
 Where memory weighting considers past successes and risks:
+
 $$
 Memory_{weighted} = Success_{weight} * Past_{success} - Risk_{weight} * Past_{risk}
 $$
@@ -49,6 +52,7 @@ $$
 - Introduces new random data related to the selected points as background noise
 
 Pattern importance is calculated as:
+
 $$
 Value_{pattern} = \frac{Benefit_{historical}}{1 + Risk_{historical}}
 $$
@@ -60,6 +64,7 @@ $$
   - **Random scenarios** (for creative problem-solving)
 
 Each scenario is evaluated using:
+
 $$
 Benefit_{risk} = \alpha * Benefit - \gamma * Risk
 $$
@@ -74,6 +79,7 @@ where:
 - Integrates **memory** to apply a probability-based sorting mechanism using past experiences
 
 Scenario ranking:
+
 $$
 Rank = \frac{Value * Success_{historical}}{Risk_{factor}}
 $$
@@ -81,6 +87,7 @@ $$
 #### **Layer 5: Final Scenario Selection**
 - Outputs the top N scenarios for the rest of the AI system to process and act upon
 - Final selection considers both value and diversity:
+- 
 $$
 Selection_{score} = Value_{scenario} * Diversity_{factor}
 $$
@@ -90,6 +97,7 @@ $$
 - Evaluates scenarios to optimize benefits for the AI's current objectives
 
 Evolution of scenarios:
+
 $$
 Next_{state} = Current_{state} + Learning + Randomness_{controlled}
 $$
@@ -99,6 +107,7 @@ $$
 - Assesses scenarios based on probability and historical occurrence for adaptive responses
 
 Risk evaluation:
+
 $$
 Risk_{total} = Risk_{current} * (1 + Uncertainty_{factor})
 $$
@@ -108,30 +117,35 @@ $$
 ### **1. Autonomous Systems**
 - Enhancing adaptability and risk awareness in real-time decision-making
 - Environmental adaptation through:
+
 $$
 Response_{adaptive} = Base_{response} * Environment_{factor}
 $$
 
 ### **2. Strategic AI**
 - Simulating multiple outcomes for complex problem-solving
+
 $$
 Strategy = \frac{1}{N} \sum (Scenarios * Probabilities)
 $$
 
 ### **3. Creative AI**
 - Generating imaginative or unconventional scenarios
+
 $$
 Ideas = Base_{knowledge} + Novel_{patterns} * Creativity_{factor}
 $$
 
 ### **4. Risk Management**
 - Balancing opportunities and dangers in critical applications
+
 $$
 Risk_{adaptive} = Base_{risk} * Environment_{factor} * Safety_{margin}
 $$
 
 ## Why Artificial-Subconscious?
 The project enhances AI capabilities through:
+
 $$
 AI_{enhanced} = Base_{AI} + Subconscious_{layer}
 $$
