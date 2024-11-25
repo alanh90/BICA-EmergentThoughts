@@ -42,9 +42,7 @@ where:
 - $R(x, y, z) \sim U(a, b)$: Uniformly distributed random noise
 - $M(x, y, z)$: Memory-retrieved data prioritized by:
 
-$$
-M(x, y, z) = w_i \cdot \text{Success}_{\text{past}} - v_i \cdot \text{Risk}_{\text{past}}
-$$
+$$ M(x, y, z) = w_i · Success_{past} - v_i · Risk_{past} $$
 
 Peaks and valleys in the noise field are defined as:
 
