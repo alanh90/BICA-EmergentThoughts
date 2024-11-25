@@ -3,19 +3,21 @@
 ![Cover Image](media/cover_img.png)
 
 ## Overview
-**Artificial-Subconscious** is an innovative system designed to simulate a subconscious-like process within an AI. Its operation can be summarized as:
+**Artificial-Subconscious** is an innovative system designed to simulate a subconscious-like process within AI, exploring the deeper dimensions of artificial cognition. Its operation can be summarized as:
 
 $$
 \text{AI}_{\text{subconscious}} = f(\text{Noise}, \text{Memory}, \text{Scenarios}) \rightarrow \text{Decision}
 $$
 
-Inspired by human cognition, this model processes raw inputs (noise), extracts meaningful insights, generates hypothetical scenarios, and evaluates them for relevance and risk. The ultimate goal is to enhance decision-making and adaptability in artificial intelligence systems, bridging the gap between human-like intuition and computational precision.
+Inspired by human cognition and the intrinsic qualities that drive intuitive understanding, this model processes raw inputs (noise), extracts meaningful insights, generates hypothetical scenarios, and evaluates them for relevance and risk. The ultimate goal is to enhance both the technical capabilities and the inherent adaptability of artificial intelligence systems, bridging the gap between pure computation and deeper, more nuanced forms of intelligence.
 
-Primary objective:
+Primary objectives:
 
 $$
-\text{Goal} = \text{Maximize}(\alpha \cdot Adaptability + \beta \cdot Decision_{precision})
+\text{Goal} = \text{Maximize}(\alpha \cdot Adaptability + \beta \cdot Decision_{precision} + \gamma \cdot Intuitive_{understanding})
 $$
+
+Where the introduction of $\gamma \cdot Intuitive_{understanding}$ represents our focus on developing systems that go beyond traditional computational boundaries to achieve more profound levels of artificial intelligence.
 
 ## Key Features
 
