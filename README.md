@@ -42,6 +42,8 @@ Where:
 
 - w_success, w_risk: Weights for emphasizing past successes and risks.
 
+--- 
+
 ### **Layer 2: Significant Data Extraction**
 
 **Purpose:** Identify meaningful patterns from the integrated data.
@@ -59,6 +61,8 @@ Where:
 - V_pattern: Value of the identified pattern.
 - Benefit_historical: Historical benefit of the pattern.
 - Risk_historical: Historical risk associated with the pattern.
+
+---
 
 ### **Layer 3: Hypothetical Scenario Generation**
 
@@ -98,6 +102,8 @@ Where:
 - Scenario Score: Score assigned to each scenario.
 - α, γ: Weighting coefficients for benefit and risk.
 
+---
+
 ### **Layer 4: Scenario Evaluation and Ranking**
 
 **Purpose:** Evaluate and rank scenarios based on their viability, balancing historical success, scenario score, and associated risks.
@@ -130,6 +136,7 @@ $$
 \end{aligned}
 $$
 
+---
 
 #### **Layer 5: Final Scenario Selection**
 
