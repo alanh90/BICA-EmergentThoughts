@@ -18,13 +18,12 @@ Maximize the following goal function:
 
 - α, β, γ: Coefficients representing the importance of each component.
 
-## Key Features
 
-### 1. Layered Subconscious Processing Architecture
+## Layered Subconscious Processing Architecture
 
 The framework consists of multiple layers that emulate subconscious thought processes:
 
-#### **Layer 1: Noise and Memory Integration**
+### **Layer 1: Noise and Memory Integration**
 
 **Purpose:** Generate a foundational data set that simulates subconscious thoughts.
 
@@ -43,7 +42,7 @@ Where:
 
 - w_success, w_risk: Weights for emphasizing past successes and risks.
 
-#### **Layer 2: Significant Data Extraction**
+### **Layer 2: Significant Data Extraction**
 
 **Purpose:** Identify meaningful patterns from the integrated data.
 
@@ -61,7 +60,7 @@ Where:
 - Benefit_historical: Historical benefit of the pattern.
 - Risk_historical: Historical risk associated with the pattern.
 
-#### **Layer 3: Hypothetical Scenario Generation**
+### **Layer 3: Hypothetical Scenario Generation**
 
 **Purpose:** Create potential future scenarios based on significant data patterns.
 
@@ -99,7 +98,7 @@ Where:
 - Scenario Score: Score assigned to each scenario.
 - α, γ: Weighting coefficients for benefit and risk.
 
-#### **Layer 4: Scenario Evaluation and Ranking**
+### **Layer 4: Scenario Evaluation and Ranking**
 
 **Purpose:** Evaluate and rank scenarios based on their viability, balancing historical success, scenario score, and associated risks.
 
