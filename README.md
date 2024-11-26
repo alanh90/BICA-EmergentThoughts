@@ -1,28 +1,22 @@
 # Artificial Subconscious for AGI
 
+![Cover Image](media/cover_img.png)
+
 ## Overview
 
 **Artificial Subconscious** is a conceptual framework designed to simulate subconscious processing within artificial intelligence systems. Inspired by human cognition, this approach aims to enhance AI's adaptability, creativity, and intuitive understanding.
 
 At its core, the framework processes raw inputs, leverages memory, generates hypothetical scenarios, and evaluates them to inform decision-making:
 
-  
-$$
-\text{AI}_{\text{subconscious}} = f(\text{Noise},\ \text{Memory},\ \text{Scenarios}) \rightarrow \text{Decision}
-$$
-  
+**AI\_subconscious = f(Noise, Memory, Scenarios) → Decision**
 
 **Primary Objective:**
 
 Maximize the following goal function:
 
-  
-$$
-\text{Goal} = \text{Maximize}\left( \alpha \times \text{Adaptability} + \beta \times \text{Decision Precision} + \gamma \times \text{Intuitive Understanding} \right)
-$$
-  
+**Goal = Maximize( α × Adaptability + β × Decision Precision + γ × Intuitive Understanding )**
 
-- \( \alpha, \beta, \gamma \): Coefficients representing the importance of each component.
+- α, β, γ: Coefficients representing the importance of each component.
 
 ## Key Features
 
@@ -41,21 +35,13 @@ The framework consists of multiple layers that emulate subconscious thought proc
 
 **Formula:**
 
-  
-$$
-N = N_{\text{random}} + N_{\text{memory}}
-$$
-  
+**N = N_random + N_memory**
 
 Where:
 
-  
-$$
-N_{\text{memory}} = w_{\text{success}} \times \text{Past Successes} - w_{\text{risk}} \times \text{Past Risks}
-$$
-  
+**N_memory = w_success × Past Successes − w_risk × Past Risks**
 
-- \( w_{\text{success}}, w_{\text{risk}} \): Weights for emphasizing past successes and risks.
+- w_success, w_risk: Weights for emphasizing past successes and risks.
 
 #### **Layer 2: Significant Data Extraction**
 
@@ -69,15 +55,11 @@ $$
 
 **Pattern Importance Calculation:**
 
-  
-$$
-V_{\text{pattern}} = \frac{B_{\text{historical}}}{1 + R_{\text{historical}}}
-$$
-  
+**V_pattern = Benefit_historical / (1 + Risk_historical)**
 
-- \( V_{\text{pattern}} \): Value of the identified pattern.
-- \( B_{\text{historical}} \): Historical benefit of the pattern.
-- \( R_{\text{historical}} \): Historical risk associated with the pattern.
+- V_pattern: Value of the identified pattern.
+- Benefit_historical: Historical benefit of the pattern.
+- Risk_historical: Historical risk associated with the pattern.
 
 #### **Layer 3: Hypothetical Scenario Generation**
 
@@ -90,14 +72,10 @@ $$
 
 **Scenario Evaluation Formula:**
 
-  
-$$
-S_{\text{score}} = \alpha \times \text{Benefit} - \gamma \times \text{Risk}
-$$
-  
+**Scenario Score = α × Benefit − γ × Risk**
 
-- \( S_{\text{score}} \): Scenario score.
-- \( \alpha, \gamma \): Weighting coefficients for benefit and risk.
+- Scenario Score: Score assigned to each scenario.
+- α, γ: Weighting coefficients for benefit and risk.
 
 #### **Layer 4: Scenario Evaluation and Ranking**
 
@@ -110,14 +88,10 @@ $$
 
 **Scenario Ranking Formula:**
 
-  
-$$
-\text{Rank} = \frac{S_{\text{score}} \times M_{\text{success}}}{R_{\text{factor}}}
-$$
-  
+**Rank = (Scenario Score × Success_historical) / Risk_factor**
 
-- \( M_{\text{success}} \): Historical success metric.
-- \( R_{\text{factor}} \): Adjusted risk factor.
+- Success_historical: Historical success metric.
+- Risk_factor: Adjusted risk factor.
 
 #### **Layer 5: Final Scenario Selection**
 
@@ -125,18 +99,14 @@ $$
 
 **Process:**
 
-- **Selection Criteria:** Picks top \( N \) scenarios that offer a balance between potential reward and acceptable risk.
+- **Selection Criteria:** Picks top N scenarios that offer a balance between potential reward and acceptable risk.
 - **Diversity Factor:** Ensures a range of options to avoid tunnel vision.
 
 **Final Selection Score:**
 
-  
-$$
-S_{\text{selection}} = \text{Rank} \times D_{\text{factor}}
-$$
-  
+**Selection Score = Rank × Diversity_factor**
 
-- \( D_{\text{factor}} \): Diversity factor to promote variety in selected scenarios.
+- Diversity_factor: Factor to promote variety in selected scenarios.
 
 ### 2. Dynamic Scenario Generation
 
@@ -148,14 +118,10 @@ $$
 
 **Evolution Formula:**
 
-  
-$$
-S_{\text{next}} = S_{\text{current}} + \Delta L + \epsilon
-$$
-  
+**Next State = Current State + Learning Change + Controlled Randomness**
 
-- \( \Delta L \): Change due to learning.
-- \( \epsilon \): Controlled randomness.
+- Learning Change: Adjustment based on new information.
+- Controlled Randomness: Introduced variability to explore new possibilities.
 
 ### 3. Risk and Benefit Analysis
 
@@ -167,13 +133,9 @@ $$
 
 **Risk Evaluation Formula:**
 
-  
-$$
-R_{\text{total}} = R_{\text{current}} \times (1 + U_{\text{factor}})
-$$
-  
+**Total Risk = Current Risk × (1 + Uncertainty Factor)**
 
-- \( U_{\text{factor}} \): Uncertainty factor.
+- Uncertainty Factor: Represents the level of uncertainty in the current context.
 
 ## Use Cases
 
@@ -185,13 +147,9 @@ $$
 
 **Adaptive Response Formula:**
 
-  
-$$
-R_{\text{adaptive}} = R_{\text{base}} \times E_{\text{factor}}
-$$
-  
+**Adaptive Response = Base Response × Environmental Factor**
 
-- \( E_{\text{factor}} \): Environmental factor influencing the response.
+- Environmental Factor: Influences the response based on external conditions.
 
 ### **2. Strategic Planning**
 
@@ -201,14 +159,11 @@ $$
 
 **Strategy Calculation:**
 
-  
-$$
-\text{Strategy} = \frac{1}{N} \sum_{i=1}^{N} (S_{i} \times P_{i})
-$$
-  
+**Strategy = (1 / N) × Σ (Scenario_i × Probability_i)**
 
-- \( S_{i} \): Scenario \( i \).
-- \( P_{i} \): Probability of scenario \( i \).
+- Scenario_i: Scenario number i.
+- Probability_i: Probability of scenario i occurring.
+- N: Total number of scenarios considered.
 
 ### **3. Creative Ideation**
 
@@ -218,15 +173,10 @@ $$
 
 **Idea Generation Formula:**
 
-  
-$$
-I = K_{\text{base}} + P_{\text{novel}} \times C_{\text{factor}}
-$$
-  
+**Idea = Base Knowledge + Novel Patterns × Creativity Factor**
 
-- \( K_{\text{base}} \): Base knowledge.
-- \( P_{\text{novel}} \): Novel patterns identified.
-- \( C_{\text{factor}} \): Creativity factor.
+- Novel Patterns: Newly identified patterns or concepts.
+- Creativity Factor: Degree to which creativity is emphasized.
 
 ### **4. Risk Management**
 
@@ -236,23 +186,15 @@ $$
 
 **Adaptive Risk Formula:**
 
-  
-$$
-R_{\text{adaptive}} = R_{\text{base}} \times E_{\text{factor}} \times S_{\text{margin}}
-$$
-  
+**Adaptive Risk = Base Risk × Environmental Factor × Safety Margin**
 
-- \( S_{\text{margin}} \): Safety margin.
+- Safety Margin: Additional buffer to account for uncertainties.
 
 ## Why Artificial Subconscious?
 
 The project enhances AI capabilities by adding a subconscious layer to existing systems:
 
-  
-$$
-\text{AI}_{\text{enhanced}} = \text{AI}_{\text{base}} + \text{Subconscious}_{\text{layer}}
-$$
-  
+**AI_enhanced = AI_base + Subconscious_layer**
 
 This subconscious layer operates beneath conscious decision-making, offering:
 
