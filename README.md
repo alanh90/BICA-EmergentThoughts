@@ -68,6 +68,28 @@ Where:
 **Process:**
 
 - **Scenario Creation:** Generates a diverse set of scenarios, including high-benefit, high-risk, and random variations.
+  - **Purpose:** Continuously generate and evolve scenarios based on current inputs and learning.
+
+  **Process:**
+  
+  - **Scenario Evolution:** Updates scenarios by incorporating learning and controlled randomness.
+  
+  **Evolution Formula:**
+  
+  $$
+  S_{\text{next}} = S_{\text{current}} + \Delta S_{\text{learning}} + \eta_{\text{random}}
+  $$
+  
+  $$
+  \text{where:}
+  \begin{aligned}
+  & S_{\text{next}} : \text{The next state of the system.} \\
+  & S_{\text{current}} : \text{The current state of the system.} \\
+  & \Delta S_{\text{learning}} : \text{The change in state driven by learning or adaptation.} \\
+  & \eta_{\text{random}} : \text{Controlled randomness introduced to simulate variability or creativity.}
+  \end{aligned}
+  $$
+
 - **Evaluation Metrics:** Estimates potential benefits and risks for each scenario.
 
 **Scenario Evaluation Formula:**
@@ -95,58 +117,33 @@ Where:
 
 #### **Layer 5: Final Scenario Selection**
 
-**Purpose:** Choose the most promising scenarios for implementation.
+**Purpose:** Select the most promising scenarios to present to the system for further processing, balancing reward, risk, and diversity.
 
 **Process:**
 
-- **Selection Criteria:** Picks top N scenarios that offer a balance between potential reward and acceptable risk.
-- **Diversity Factor:** Ensures a range of options to avoid tunnel vision.
+1. **Selection Criteria:**
+   - Scenarios are scored based on their potential reward \( R(S_i) \), risk \( R_k(S_i) \), and diversity factor \( D_f \).
+   - A weighted score is computed to prioritize scenarios that optimize all factors.
 
-**Final Selection Score:**
+2. **Diversity Factor:**
+   - Promotes variety by penalizing similar or redundant scenarios to ensure a broad range of options.
 
-**Selection Score = Rank × Diversity_factor**
-
-- Diversity_factor: Factor to promote variety in selected scenarios.
-
-### 2. Dynamic Scenario Generation
-
-**Purpose:** Continuously generate and evolve scenarios based on current inputs and learning.
-
-**Process:**
-
-- **Scenario Evolution:** Updates scenarios by incorporating learning and controlled randomness.
-
-**Evolution Formula:**
+**Final Selection Score Formula:**
 
 $$
-S_{\text{next}} = S_{\text{current}} + \Delta S_{\text{learning}} + \eta_{\text{random}}
+S_{\text{final}} = \frac{R(S_i) - \gamma R_k(S_i)}{1 + D_f}
 $$
 
+**Where:**
+
 $$
-\text{where:}
-\begin{aligned}
-& S_{\text{next}} : \text{The next state of the system.} \\
-& S_{\text{current}} : \text{The current state of the system.} \\
-& \Delta S_{\text{learning}} : \text{The change in state driven by learning or adaptation.} \\
-& \eta_{\text{random}} : \text{Controlled randomness introduced to simulate variability or creativity.}
-\end{aligned}
+- \( S_{\text{final}} \): Final selection score of a scenario.
+- \( R(S_i) \): Reward or benefit score of scenario \( S_i \).
+- \( R_k(S_i) \): Risk score of scenario \( S_i \), weighted by a factor \( \gamma \) (risk tolerance coefficient).
+- \( D_f \): Diversity factor, which penalizes similarity among selected scenarios to ensure variety.
 $$
 
-
-
-### 3. Risk and Benefit Analysis
-
-**Purpose:** Assess potential risks and benefits of scenarios to inform decision-making.
-
-**Process:**
-
-- **Risk Evaluation:** Adjusts risk assessments by considering uncertainty factors.
-
-**Risk Evaluation Formula:**
-
-**Total Risk = Current Risk × (1 + Uncertainty Factor)**
-
-- Uncertainty Factor: Represents the level of uncertainty in the current context.
+---
 
 ## Use Cases
 
@@ -156,7 +153,7 @@ $$
 
 **Example:** An AI personal assistant evaluates a user's planned route to work and suggests alternate paths, not just based on real-time traffic, but by simulating hypothetical scenarios such as potential accidents or delays, akin to an intrusive thought process nudging for better options.
 
----
+
 
 ### **2. Intrusive Thought-Driven Strategic Planning**
 
@@ -164,7 +161,7 @@ $$
 
 **Example:** An AI project manager creates scenarios like "What if a major supplier fails?" or "What if this team member leaves the project unexpectedly?" to preemptively plan contingency strategies, mirroring a human's natural anticipatory thoughts.
 
----
+
 
 ### **3. Subconscious Creativity and Ideation**
 
@@ -172,7 +169,7 @@ $$
 
 **Example:** A creative AI for authors generates plot twists or character dilemmas by "intruding" with unprompted, radical ideas—like "What if the protagonist betrays their closest ally?"—to inspire novel story directions, emulating subconscious creative sparks.
 
----
+
 
 ### **4. Risk Awareness through Hypothetical Intrusions**
 
@@ -180,13 +177,15 @@ $$
 
 **Example:** An AI co-pilot evaluates risky landing conditions by intruding with thoughts like "What if the wind shifts suddenly?" or "What if visibility deteriorates?"—integrating these intrusive simulations into decision-making to ensure safety in unpredictable situations.
 
----
+
 
 ### **5. Emotional Alignment in Human-Like AI**
 
 **Application:** Emulating human-like emotional thought processes by introducing subconscious-like self-doubt or uncertainty.
 
 **Example:** A mental health AI assistant supports users by suggesting questions like "What if you approached this problem differently?" or "What if the worst-case scenario doesn't happen?" to guide constructive reflection, akin to how subconscious intrusive thoughts can lead to self-improvement.
+
+---
 
 ## Why Artificial Subconscious?
 
