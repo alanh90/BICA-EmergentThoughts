@@ -137,11 +137,14 @@ $$
 **Where:**
 
 $$
-- \( S_{\text{final}} \): Final selection score of a scenario.
-- \( R(S_i) \): Reward or benefit score of scenario \( S_i \).
-- \( R_k(S_i) \): Risk score of scenario \( S_i \), weighted by a factor \( \gamma \) (risk tolerance coefficient).
-- \( D_f \): Diversity factor, which penalizes similarity among selected scenarios to ensure variety.
+\begin{aligned}
+& S_{\text{final}} : \text{Final selection score of a scenario.} \\
+& R(S_i) : \text{Reward or benefit score of scenario } S_i. \\
+& R_k(S_i) : \text{Risk score of scenario } S_i, \text{ weighted by a factor } \gamma \text{ (risk tolerance coefficient).} \\
+& D_f : \text{Diversity factor, which penalizes similarity among selected scenarios to ensure variety.}
+\end{aligned}
 $$
+
 
 ---
 
