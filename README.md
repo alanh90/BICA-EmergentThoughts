@@ -4,20 +4,36 @@
 
 ## Overview
 
-**Artificial Subconscious** is a conceptual framework designed to simulate subconscious processing within artificial intelligence systems. Inspired by human cognition, this approach aims to enhance AI's adaptability, creativity, and intuitive understanding.
+**Artificial Subconscious** is a conceptual framework designed to simulate subconscious processing within artificial intelligence systems. Inspired by human cognition, this approach enhances AI's adaptability, creativity, and intuitive understanding.
 
 At its core, the framework processes raw inputs, leverages memory, generates hypothetical scenarios, and evaluates them to inform decision-making:
 
-**AI\_subconscious = f(Noise, Memory, Scenarios) → Decision**
+$$
+\text{AI}_{\text{subconscious}} = f(\text{Noise}, \text{Memory}, \text{Scenarios}) \rightarrow \text{Decision}
+$$
 
-**Primary Objective:**
+---
+
+### **Primary Objective:**
 
 Maximize the following goal function:
 
-**Goal = Maximize( α × Adaptability + β × Decision Precision + γ × Intuitive Understanding )**
+$$
+\text{Goal} = \text{Maximize}( \alpha \cdot \text{Adaptability} + \beta \cdot \text{Decision Precision} + \gamma \cdot \text{Intuitive Understanding} )
+$$
 
-- α, β, γ: Coefficients representing the importance of each component.
+**Where:**
 
+$$
+\begin{aligned}
+& \alpha, \beta, \gamma : \text{Coefficients representing the importance of each component.} \\
+& \text{Adaptability} : \text{The AI's ability to adjust to new or changing conditions.} \\
+& \text{Decision Precision} : \text{The accuracy of the decisions made by the AI.} \\
+& \text{Intuitive Understanding} : \text{The AI's capacity to emulate human-like intuition and insight.}
+\end{aligned}
+$$
+
+---
 
 ## Layered Subconscious Processing Architecture
 
@@ -25,42 +41,79 @@ The framework consists of multiple layers that emulate subconscious thought proc
 
 ### **Layer 1: Noise and Memory Integration**
 
-**Purpose:** Generate a foundational data set that simulates subconscious thoughts.
+**Purpose:** Generate a foundational data set that simulates subconscious thoughts by combining random variability and context-aware memory integration.
 
 **Process:**
 
-- **Random Noise Generation:** Introduces variability and fosters creativity.
-- **Memory Integration:** Incorporates weighted past experiences related to the current context, emphasizing successes and cautioning against past risks.
+1. **Random Noise Generation:**
+   - Introduces variability into the system, fostering creativity and exploration.
 
-**Formula:**
+2. **Memory Integration:**
+   - Incorporates weighted past experiences related to the current context.
+   - Emphasizes successes while cautioning against past risks to balance creativity and caution.
 
-**N = N_random + N_memory**
+**Formula for Noise and Memory Integration:**
 
-Where:
+$$
+N = N_{\text{random}} + N_{\text{memory}}
+$$
 
-**N_memory = w_success × Past Successes − w_risk × Past Risks**
+**Where:**
 
-- w_success, w_risk: Weights for emphasizing past successes and risks.
+$$
+N_{\text{memory}} = w_{\text{success}} \cdot S_{\text{past}} - w_{\text{risk}} \cdot R_{\text{past}}
+$$
+
+**Definitions:**
+
+$$
+\begin{aligned}
+& N : \text{Combined noise and memory-based data set.} \\
+& N_{\text{random}} : \text{Randomly generated noise to introduce variability.} \\
+& N_{\text{memory}} : \text{Weighted data from past experiences.} \\
+& w_{\text{success}} : \text{Weight emphasizing the impact of past successes.} \\
+& w_{\text{risk}} : \text{Weight emphasizing the caution against past risks.} \\
+& S_{\text{past}} : \text{Historical success data.} \\
+& R_{\text{past}} : \text{Historical risk data.}
+\end{aligned}
+$$
+
 
 --- 
 
 ### **Layer 2: Significant Data Extraction**
 
-**Purpose:** Identify meaningful patterns from the integrated data.
+**Purpose:** Identify meaningful patterns from the integrated data to balance success-driven insights with risk awareness and creativity.
 
 **Process:**
 
-- **Peak Identification:** Selects data points representing significant successes (peaks).
-- **Valley Identification:** Considers notable risks (valleys) to remain aware of potential pitfalls.
-- **Controlled Randomness:** Introduces variability around peaks and valleys to encourage creative associations.
+1. **Peak Identification:**
+   - Extracts data points representing significant successes (peaks) from the integrated data.
+   - Peaks are associated with patterns that have historically demonstrated high utility or reward.
+
+2. **Valley Identification:**
+   - Identifies data points representing notable risks (valleys) to ensure awareness of potential pitfalls.
+   - Valleys help contextualize and mitigate risks during decision-making.
+
+3. **Controlled Randomness:**
+   - Introduces variability around identified peaks and valleys, ensuring exploration of creative or unconventional associations.
 
 **Pattern Importance Calculation:**
 
-**V_pattern = Benefit_historical / (1 + Risk_historical)**
+$$
+V_{\text{pattern}} = \frac{B_{\text{historical}}}{1 + R_{\text{historical}}}
+$$
 
-- V_pattern: Value of the identified pattern.
-- Benefit_historical: Historical benefit of the pattern.
-- Risk_historical: Historical risk associated with the pattern.
+**Where:**
+
+$$
+\begin{aligned}
+& V_{\text{pattern}} : \text{Value of the identified pattern.} \\
+& B_{\text{historical}} : \text{Historical benefit associated with the pattern.} \\
+& R_{\text{historical}} : \text{Historical risk associated with the pattern.}
+\end{aligned}
+$$
+
 
 ---
 
