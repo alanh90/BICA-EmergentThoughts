@@ -122,11 +122,16 @@ $$
 S_{\text{next}} = S_{\text{current}} + \Delta S_{\text{learning}} + \eta_{\text{random}}
 $$
 
+$$
 \text{where:}
-- \( S_{\text{next}} \): The next state of the system.
-- \( S_{\text{current}} \): The current state of the system.
-- \( \Delta S_{\text{learning}} \): The change in state driven by learning or adaptation.
-- \( \eta_{\text{random}} \): Controlled randomness introduced to simulate variability or creativity.
+\begin{aligned}
+& S_{\text{next}} : \text{The next state of the system.} \\
+& S_{\text{current}} : \text{The current state of the system.} \\
+& \Delta S_{\text{learning}} : \text{The change in state driven by learning or adaptation.} \\
+& \eta_{\text{random}} : \text{Controlled randomness introduced to simulate variability or creativity.}
+\end{aligned}
+$$
+
 
 
 ### 3. Risk and Benefit Analysis
