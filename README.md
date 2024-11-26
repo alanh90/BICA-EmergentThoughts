@@ -101,19 +101,36 @@ Where:
 
 #### **Layer 4: Scenario Evaluation and Ranking**
 
-**Purpose:** Assess and rank scenarios to determine their viability.
+**Purpose:** Evaluate and rank scenarios based on their viability, balancing historical success, scenario score, and associated risks.
 
 **Process:**
 
-- **Consolidation:** Groups similar scenarios to identify common patterns.
-- **Scoring:** Evaluates scenarios using historical success rates and risk factors.
+1. **Consolidation:**
+   - Groups similar scenarios into clusters to identify common patterns and avoid redundancy.
+   - Consolidation reduces cognitive and computational overload by focusing on distinct scenarios.
+
+2. **Scoring:**
+   - Each scenario is evaluated using a composite score that considers:
+     - Historical success rates, representing the likelihood of positive outcomes.
+     - Scenario-specific risk factors, ensuring risk-aware ranking.
 
 **Scenario Ranking Formula:**
 
-**Rank = (Scenario Score × Success_historical) / Risk_factor**
+$$
+R_{\text{rank}} = \frac{R_{\text{score}} \cdot H_{\text{success}}}{1 + R_{\text{risk}}}
+$$
 
-- Success_historical: Historical success metric.
-- Risk_factor: Adjusted risk factor.
+**Where:**
+
+$$
+\begin{aligned}
+& R_{\text{rank}} : \text{Final ranking score for the scenario.} \\
+& R_{\text{score}} : \text{Intrinsic scenario score derived from its benefit or reward potential.} \\
+& H_{\text{success}} : \text{Historical success metric, indicating the frequency or magnitude of past positive outcomes.} \\
+& R_{\text{risk}} : \text{Adjusted risk factor, penalizing scenarios with higher associated risks.}
+\end{aligned}
+$$
+
 
 #### **Layer 5: Final Scenario Selection**
 
