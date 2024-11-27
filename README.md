@@ -39,43 +39,23 @@ The **Artificial Subconscious** operates through a multi-layered architecture, s
 
 ### **Layer 1: Noise and Memory Integration**
 
-**Purpose:** Generate a foundational data set that simulates subconscious thoughts by combining random variability and context-aware memory integration.
+**Purpose:** Create a baseline for subconscious activity by integrating random variability (noise) with memory to simulate subconscious thought patterns.
 
-**Process:**
+#### **Mechanisms:**
 
 1. **Random Noise Generation:**
-   - Introduces variability into the system, fostering creativity and exploration.
+   - Simulates subconscious creativity by introducing variability.
+   - Ensures exploration of unconventional ideas.
 
 2. **Memory Integration:**
-   - Incorporates weighted past experiences related to the current context.
-   - Emphasizes successes while cautioning against past risks to balance creativity and caution.
+   - Leverages past experiences to shape patterns.
+   - Weights successes and risks to balance creativity with caution.
 
-**Formula for Noise and Memory Integration:**
+#### **Formula:**
 
 $$
 N = N_{\text{random}} + N_{\text{memory}}
 $$
-
-**Where:**
-
-$$
-N_{\text{memory}} = w_{\text{success}} \cdot S_{\text{past}} - w_{\text{risk}} \cdot R_{\text{past}}
-$$
-
-**Definitions:**
-
-$$
-\begin{aligned}
-& N : \text{Combined noise and memory-based data set.} \\
-& N_{\text{random}} : \text{Randomly generated noise to introduce variability.} \\
-& N_{\text{memory}} : \text{Weighted data from past experiences.} \\
-& w_{\text{success}} : \text{Weight emphasizing the impact of past successes.} \\
-& w_{\text{risk}} : \text{Weight emphasizing the caution against past risks.} \\
-& S_{\text{past}} : \text{Historical success data.} \\
-& R_{\text{past}} : \text{Historical risk data.}
-\end{aligned}
-$$
-
 
 --- 
 
@@ -85,64 +65,33 @@ $$
 
 **Process:**
 
-1. **Peak Identification:**
+1. **Peak Identification (Possible Successes):**
    - Extracts data points representing significant successes (peaks) from the integrated data.
    - Peaks are associated with patterns that have historically demonstrated high utility or reward.
 
-2. **Valley Identification:**
+2. **Valley Identification (Possible Risks):**
    - Identifies data points representing notable risks (valleys) to ensure awareness of potential pitfalls.
    - Valleys help contextualize and mitigate risks during decision-making.
 
 3. **Controlled Randomness:**
    - Introduces variability around identified peaks and valleys, ensuring exploration of creative or unconventional associations.
 
-**Pattern Importance Calculation:**
-
-$$
-V_{\text{pattern}} = \frac{B_{\text{historical}}}{1 + R_{\text{historical}}}
-$$
-
-**Where:**
-
-$$
-\begin{aligned}
-& V_{\text{pattern}} : \text{Value of the identified pattern.} \\
-& B_{\text{historical}} : \text{Historical benefit associated with the pattern.} \\
-& R_{\text{historical}} : \text{Historical risk associated with the pattern.}
-\end{aligned}
-$$
-
-
 ---
 
 ### **Layer 3: Hypothetical Scenario Generation**
 
-**Purpose:** Create potential future scenarios based on significant data patterns.
+**Purpose:** Generate intrusive, hypothetical scenarios by combining extracted patterns with random variations.
 
-**Process:**
+#### **Mechanisms:**
 
-- **Scenario Creation:** Generates a diverse set of scenarios, including high-benefit, high-risk, and random variations.
-  - **Purpose:** Continuously generate and evolve scenarios based on current inputs and learning.
+- **Scenario Creation:** Continuously generates potential futures, ranging from plausible to highly imaginative.
+- **Scenario Evolution:** Refines scenarios using new data and controlled randomness.
 
-  **Process:**
-  
-  - **Scenario Evolution:** Updates scenarios by incorporating learning and controlled randomness.
-  
-  **Evolution Formula:**
-  
-  $$
-  S_{\text{next}} = S_{\text{current}} + \Delta S_{\text{learning}} + \eta_{\text{random}}
-  $$
-  
-  $$
-  \text{where:}
-  \begin{aligned}
-  & S_{\text{next}} : \text{The next state of the system.} \\
-  & S_{\text{current}} : \text{The current state of the system.} \\
-  & \Delta S_{\text{learning}} : \text{The change in state driven by learning or adaptation.} \\
-  & \eta_{\text{random}} : \text{Controlled randomness introduced to simulate variability or creativity.}
-  \end{aligned}
-  $$
+#### **Formula:**
+
+$$
+S_{\text{next}} = S_{\text{current}} + \Delta S_{\text{learning}} + \eta_{\text{random}}
+$$
 
 - **Evaluation Metrics:** Estimates potential benefits and risks for each scenario.
 
