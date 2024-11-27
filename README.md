@@ -10,7 +10,15 @@ $$
 \text{AI}_{\text{subconscious}} = f(\text{Noise}, \text{Memory}, \text{Scenarios}) \rightarrow \text{Decision}
 $$
 
+---
 
+## Introduction
+
+Human cognition operates on multiple levels, with the subconscious playing a critical role in intuitive decision-making, creativity, and adaptive reasoning. Inspired by this, the **Artificial Subconscious** framework proposes a layered architecture designed to mimic these processes. While conventional AI focuses on explicit, conscious reasoning, this framework introduces subconscious-like mechanisms to explore, hypothesize, and balance decision-making processes with creativity and risk awareness.
+
+This repo outlines the conceptual design of the framework, providing detailed descriptions of its components and processes. Future work will involve formal coding, experimentation, and validation to quantify the efficacy of the approach.
+
+---
 
 ### **Primary Objective:**
 
