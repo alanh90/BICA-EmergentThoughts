@@ -2,11 +2,9 @@
 
 ![Cover Image](media/cover_img.png)
 
-## Overview
+## Abstract
 
-**Artificial Subconscious** is a conceptual framework designed to simulate subconscious processing within artificial intelligence systems. Inspired by human cognition, this approach enhances AI's adaptability, creativity, and intuitive understanding.
-
-At its core, the framework processes raw inputs, leverages memory, generates hypothetical scenarios, and evaluates them to inform decision-making:
+Artificial intelligence (AI) systems have traditionally relied on deterministic and probabilistic models for decision-making, lacking the nuanced and intuitive capabilities observed in human cognition. The **Artificial Subconscious** framework introduces a novel conceptual approach inspired by the human subconscious to enhance adaptability, creativity, and intuitive reasoning in AI systems. By processing raw inputs through layers of memory integration, pattern recognition, scenario generation, and evaluation, this framework aims to simulate subconscious cognitive processes. While currently theoretical, this approach offers a foundation for developing AI systems capable of operating effectively in dynamic and uncertain environments.
 
 $$
 \text{AI}_{\text{subconscious}} = f(\text{Noise}, \text{Memory}, \text{Scenarios}) \rightarrow \text{Decision}
