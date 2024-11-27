@@ -127,7 +127,7 @@ $$
 
 ---
 
-#### **Layer 5: Final Scenario Selection**
+### **Layer 5: Final Scenario Selection**
 
 **Purpose:** Select the most promising scenarios for presentation to the system for further processing, balancing reward, risk, and diversity.
 
