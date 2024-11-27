@@ -31,9 +31,11 @@ The **Artificial Subconscious** is not goal-driven. Instead, its primary objecti
 
 ---
 
-## Layered Subconscious Processing Architecture
+## **Framework Overview**
 
-The framework consists of multiple layers that emulate subconscious thought processes:
+The **Artificial Subconscious** operates through a multi-layered architecture, simulating subconscious thought processes. Each layer is designed to process raw inputs, generate potential scenarios, and evaluate their utility and risk before presenting them as suggestions.
+
+---
 
 ### **Layer 1: Noise and Memory Integration**
 
