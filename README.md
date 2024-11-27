@@ -129,31 +129,31 @@ $$
 
 ### **Layer 5: Final Scenario Selection**
 
-**Purpose:** Select the most promising scenarios for presentation to the system for further processing, balancing reward, risk, and diversity.
+**Purpose:** Select the most promising scenarios for presentation to the system for further processing, balancing reward, routine effectiveness, and diversity. Unlike purely penalizing scenarios for similarity, this process acknowledges the value of successful routines while also prioritizing unique and creative alternatives when appropriate.
 
 ---
 
 ### **Process:**
 
 1. **Selection Criteria:**
-   - **Reward Potential** $R(S_i)$ : Scenarios are evaluated based on their intrinsic benefits, such as alignment with the system's overarching goals or their potential to create novel opportunities.
-   - **Risk Adjustment** ($R_k(S_i)$): Risk scores are applied to penalize scenarios with higher potential for negative consequences.
-   - **Diversity Factor** ($D_f$): A penalty is applied to scenarios that are too similar to previously selected options, ensuring variety in the final output.
+   - **Reward Potential** ($R(S_i)$): Scenarios are evaluated based on their intrinsic benefits, such as alignment with the system's overarching goals or their potential to create novel opportunities.
+   - **Routine Success Factor** ($H_{\text{success}}$): Scenarios with a history of high performance are favored to emulate the human tendency to rely on effective routines.
+   - **Diversity Factor** ($D_f$): Unique scenarios are given additional weight to ensure a balanced set of creative and conventional options.
 
 2. **Weighted Scoring:**
-   - Scenarios are ranked using a composite score that considers the interplay of reward, risk, and diversity.
-   - The weighting coefficients ($\gamma$ and $D_f$) provide flexibility, allowing the system to prioritize safety, creativity, or exploration depending on the context.
+   - Scenarios are ranked using a composite score that considers reward, routine success, and diversity. 
+   - The weighting coefficients ($\gamma$ for risk, $\alpha$ for routine success, and $\beta$ for diversity) enable dynamic adjustment based on the desired balance between routine and novelty.
 
 3. **Thresholding and Filtering:**
-   - A predefined threshold can be applied to eliminate scenarios that fall below an acceptable reward-to-risk ratio.
-   - Scenarios deemed overly redundant or excessively risky are deprioritized to maintain a balanced selection set.
+   - A predefined threshold can be applied to ensure all selected scenarios meet a minimum standard for reward and effectiveness.
+   - Scenarios deemed overly redundant but not historically successful may still be deprioritized in favor of diverse options.
 
 ---
 
 ### **Enhanced Final Selection Score Formula:**
 
 $$
-S_{\text{final}} = \frac{R(S_i) - \gamma R_k(S_i)}{1 + D_f}
+S_{\text{final}} = \frac{R(S_i) + \alpha H_{\text{success}} - \gamma R_k(S_i)}{1 + \beta D_f}
 $$
 
 **Where:**
@@ -162,9 +162,11 @@ $$
 \begin{aligned}
 & S_{\text{final}} : \text{Final composite score of a scenario.} \\
 & R(S_i) : \text{Reward or benefit score associated with scenario } S_i. \\
+& H_{\text{success}} : \text{Historical success metric of scenario } S_i. \\
 & R_k(S_i) : \text{Risk score of scenario } S_i, \text{ weighted by a coefficient } \gamma. \\
-& \gamma : \text{Risk tolerance coefficient, adjustable based on system objectives.} \\
-& D_f : \text{Diversity factor, penalizing similarity to promote variety.}
+& \alpha : \text{Routine success weighting factor, emphasizing high-performing patterns.} \\
+& \beta : \text{Diversity weighting factor, favoring uniqueness while balancing routine.} \\
+& D_f : \text{Diversity factor, promoting variety by penalizing redundancy in less effective scenarios.}
 \end{aligned}
 $$
 
@@ -172,23 +174,22 @@ $$
 
 ### **Key Enhancements**
 
-- **Reward-Balanced Diversity:** 
-  - The scoring formula ensures that the diversity factor ($D_f$) does not overly penalize scenarios with high reward potential.
-  - By dynamically weighting $D_f$, the system avoids biasing against innovative or unconventional scenarios that are similar in structure but distinct in outcome.
+- **Reward-Driven Routines:** 
+  - Scenarios with a strong history of success ($H_{\text{success}}$) are favored, ensuring the system values repeated effectiveness similar to human reliance on routine.
 
-- **Context-Specific Risk Tolerance:** 
-  - The inclusion of $\gamma$ enables dynamic adjustment of the system’s tolerance for risk. This allows the framework to prioritize safer options in critical applications or take calculated risks in exploratory or creative tasks.
+- **Balancing Routine and Creativity:** 
+  - The formula allows for both successful routines and innovative alternatives by balancing the weights of $H_{\text{success}}$ and $D_f$. Highly unique scenarios are given a chance to be shared, even if they deviate from the norm.
 
-- **Filtering Redundancy:** 
-  - Scenarios that closely resemble previously selected options (as determined by similarity metrics) are assigned higher $D_f$ values, reducing their likelihood of selection. This helps the system present a diverse and actionable range of scenarios for downstream processing.
+- **Context-Specific Adaptability:** 
+  - The coefficients $\alpha$, $\beta$, and $\gamma$ can be dynamically adjusted to suit the system's objectives. For instance, an exploratory system may favor diversity ($\beta$), while a safety-critical application may favor routine success ($\alpha$).
 
 ---
 
 ### **Integration into the Artificial Subconscious Framework**
 
 - **Input:** Layer 5 receives scored scenarios from Layer 4, which have already been evaluated for reward, risk, and historical success.
-- **Processing:** It refines these scenarios by recalculating their scores with additional diversity-based penalties and risk-adjusted prioritization.
-- **Output:** It outputs a final, ranked list of scenarios that are ready for presentation to other AI systems or modules.
+- **Processing:** It recalculates scores by integrating routine success ($H_{\text{success}}$) and diversity ($D_f$) into the scoring process.
+- **Output:** It generates a final ranked list of scenarios, including high-reward routines and uniquely creative options for downstream systems.
 
 ---
 
@@ -196,23 +197,23 @@ $$
 
 Suppose the system generates the following scenarios:
 
-- **Scenario A:** High reward, moderate risk, and similar to other generated options.
+- **Scenario A:** High reward, moderate risk, and a history of strong performance.
 - **Scenario B:** Moderate reward, low risk, and highly unique.
 - **Scenario C:** High reward, high risk, and moderately unique.
 
 Using the formula:
 
-- **Scenario A** might be penalized heavily due to high similarity ($D_f$) despite its reward.
-- **Scenario B** might achieve a high score due to low risk and high uniqueness ($1 + D_f$).
-- **Scenario C** might fall in between, with a high reward offset by a high $R_k(S_i)$ score, depending on the risk tolerance coefficient ($\gamma$).
+- **Scenario A** would score highly due to its high $R(S_i)$ and $H_{\text{success}}$, making it a strong candidate for selection as a proven routine.
+- **Scenario B** would achieve a balanced score because of its uniqueness ($D_f$) and low risk ($R_k(S_i)$), ensuring it has a chance to be presented despite a moderate reward.
+- **Scenario C** would be more dependent on the risk tolerance coefficient ($\gamma$); if $\gamma$ is low (risk-tolerant system), it might still be selected due to its high reward.
 
-The final output would reflect a balanced set of scenarios, including diverse, low-risk options and carefully selected high-reward opportunities.
+The final output reflects a mix of high-reward routines and creative alternatives, emulating human decision-making processes that balance habitual success with the exploration of new ideas.
 
 ---
 
 ### **Summary**
 
-Layer 5 acts as a decision filter that refines the set of hypothetical scenarios into an actionable output. By balancing reward, risk, and diversity, this layer ensures that the Artificial Subconscious provides meaningful and varied inputs to broader AI systems, enhancing adaptability and creativity while maintaining safety and relevance.
+Layer 5 acts as a decision filter that refines the set of hypothetical scenarios into an actionable output. By integrating routine success into the scoring process alongside reward and diversity, it emulates human-like reasoning patterns. This ensures the Artificial Subconscious maintains a balance between valuing proven routines and promoting creative alternatives, enhancing adaptability, creativity, and alignment with human-like thought processes.
 
 ---
 
