@@ -20,23 +20,12 @@ This repo outlines the conceptual design of the framework, providing detailed de
 
 ---
 
-### **Primary Objective:**
+## Objective
 
-Maximize the following goal function:
+The primary objective of the **Artificial Subconscious** is to maximize a composite goal function that balances adaptability, precision, and intuitive understanding:
 
 $$
 \text{Goal} = \text{Maximize}( \alpha \cdot \text{Adaptability} + \beta \cdot \text{Decision Precision} + \gamma \cdot \text{Intuitive Understanding} )
-$$
-
-**Where:**
-
-$$
-\begin{aligned}
-& \alpha, \beta, \gamma : \text{Coefficients representing the importance of each component.} \\
-& \text{Adaptability} : \text{The AI's ability to adjust to new or changing conditions.} \\
-& \text{Decision Precision} : \text{The accuracy of the decisions made by the AI.} \\
-& \text{Intuitive Understanding} : \text{The AI's capacity to emulate human-like intuition and insight.}
-\end{aligned}
 $$
 
 ---
