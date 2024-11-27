@@ -136,7 +136,7 @@ $$
 ### **Process:**
 
 1. **Selection Criteria:**
-   - **Reward Potential** '$R(S_i)$': Scenarios are evaluated based on their intrinsic benefits, such as alignment with the system's overarching goals or their potential to create novel opportunities.
+   - **Reward Potential** $R(S_i)$ : Scenarios are evaluated based on their intrinsic benefits, such as alignment with the system's overarching goals or their potential to create novel opportunities.
    - **Risk Adjustment** ($R_k(S_i)$): Risk scores are applied to penalize scenarios with higher potential for negative consequences.
    - **Diversity Factor** ($D_f$): A penalty is applied to scenarios that are too similar to previously selected options, ensuring variety in the final output.
 
