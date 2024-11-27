@@ -10,7 +10,7 @@ $$
 \text{AI}_{\text{subconscious}} = f(\text{Noise}, \text{Memory}, \text{Scenarios}) \rightarrow \text{Decision}
 $$
 
----
+
 
 ### **Primary Objective:**
 
