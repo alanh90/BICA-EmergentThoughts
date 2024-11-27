@@ -131,22 +131,26 @@ $$
 
 **Purpose:** Select the most promising scenarios for presentation to the system for further processing, balancing reward, risk, and diversity.
 
-**Process:**
+---
+
+### **Process:**
 
 1. **Selection Criteria:**
-   - **Reward Potential (\( R(S_i) \)):** Scenarios are evaluated based on their intrinsic benefits, such as alignment with the system's overarching goals or their potential to create novel opportunities.
-   - **Risk Adjustment (\( R_k(S_i) \)):** Risk scores are applied to penalize scenarios with higher potential for negative consequences.
-   - **Diversity Factor (\( D_f \)):** A penalty is applied to scenarios that are too similar to previously selected options, ensuring variety in the final output.
+   - **Reward Potential** \( R(S_i) \): Scenarios are evaluated based on their intrinsic benefits, such as alignment with the system's overarching goals or their potential to create novel opportunities.
+   - **Risk Adjustment** \( R_k(S_i) \): Risk scores are applied to penalize scenarios with higher potential for negative consequences.
+   - **Diversity Factor** \( D_f \): A penalty is applied to scenarios that are too similar to previously selected options, ensuring variety in the final output.
 
 2. **Weighted Scoring:**
-   - Scenarios are ranked using a composite score that considers the interplay of reward, risk, and diversity. 
-   - The weighting coefficients (\( \gamma, D_f \)) provide flexibility, allowing the system to prioritize safety, creativity, or exploration depending on the context.
+   - Scenarios are ranked using a composite score that considers the interplay of reward, risk, and diversity.
+   - The weighting coefficients \( \gamma \) and \( D_f \) provide flexibility, allowing the system to prioritize safety, creativity, or exploration depending on the context.
 
 3. **Thresholding and Filtering:**
    - A predefined threshold can be applied to eliminate scenarios that fall below an acceptable reward-to-risk ratio.
    - Scenarios deemed overly redundant or excessively risky are deprioritized to maintain a balanced selection set.
 
-**Enhanced Final Selection Score Formula:**
+---
+
+### **Enhanced Final Selection Score Formula:**
 
 $$
 S_{\text{final}} = \frac{R(S_i) - \gamma R_k(S_i)}{1 + D_f}
@@ -169,7 +173,7 @@ $$
 ### **Key Enhancements**
 
 - **Reward-Balanced Diversity:** 
-  - The scoring formula ensures that the diversity factor (\( D_f \)) does not overly penalize scenarios with high reward potential.
+  - The scoring formula ensures that the diversity factor \( D_f \) does not overly penalize scenarios with high reward potential.
   - By dynamically weighting \( D_f \), the system avoids biasing against innovative or unconventional scenarios that are similar in structure but distinct in outcome.
 
 - **Context-Specific Risk Tolerance:** 
@@ -182,24 +186,25 @@ $$
 
 ### **Integration into the Artificial Subconscious Framework**
 
-Layer 5 connects seamlessly with the preceding layers of the framework:
-
-- **Input:** It receives scored scenarios from Layer 4, which have already been evaluated for reward, risk, and historical success.
+- **Input:** Layer 5 receives scored scenarios from Layer 4, which have already been evaluated for reward, risk, and historical success.
 - **Processing:** It refines these scenarios by recalculating their scores with additional diversity-based penalties and risk-adjusted prioritization.
 - **Output:** It outputs a final, ranked list of scenarios that are ready for presentation to other AI systems or modules.
+
+---
 
 ### **Illustrative Example**
 
 Suppose the system generates the following scenarios:
+
 - **Scenario A:** High reward, moderate risk, and similar to other generated options.
 - **Scenario B:** Moderate reward, low risk, and highly unique.
 - **Scenario C:** High reward, high risk, and moderately unique.
 
-Given the formula:
+Using the formula:
 
 - **Scenario A** might be penalized heavily due to high similarity (\( D_f \)) despite its reward.
 - **Scenario B** might achieve a high score due to low risk and high uniqueness (\( 1 + D_f \)).
-- **Scenario C** might fall in between, with a high reward offset by a high \( R_k(S_i) \) score, depending on the risk tolerance coefficient (\( \gamma \)).
+- **Scenario C** might fall in between, with a high reward offset by a high \( R_k(S_i) \) score, depending on the risk tolerance coefficient \( \gamma \).
 
 The final output would reflect a balanced set of scenarios, including diverse, low-risk options and carefully selected high-reward opportunities.
 
