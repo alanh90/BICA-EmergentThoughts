@@ -136,9 +136,9 @@ $$
 ### **Process:**
 
 1. **Selection Criteria:**
-   - **Reward Potential** ($R(S_i)$): Scenarios are evaluated based on their intrinsic benefits, such as alignment with the system's overarching goals or their potential to create novel opportunities.
-   - **Routine Success Factor** ($H_{\text{success}}$): Scenarios with a history of high performance are favored to emulate the human tendency to rely on effective routines.
-   - **Diversity Factor** ($D_f$): Unique scenarios are given additional weight to ensure a balanced set of creative and conventional options.
+   - **Reward Potential** $R(S_i)$ : Scenarios are evaluated based on their intrinsic benefits, such as alignment with the system's overarching goals or their potential to create novel opportunities.
+   - **Routine Success Factor** $H_{\text{success}}$ : Scenarios with a history of high performance are favored to emulate the human tendency to rely on effective routines.
+   - **Diversity Factor** $D_f$ : Unique scenarios are given additional weight to ensure a balanced set of creative and conventional options.
 
 2. **Weighted Scoring:**
    - Scenarios are ranked using a composite score that considers reward, routine success, and diversity. 
