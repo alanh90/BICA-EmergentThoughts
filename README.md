@@ -2,31 +2,32 @@
 
 ![Cover Image](media/cover_img.png)
 
-## Abstract
+## **Abstract**
 
-Artificial intelligence (AI) systems have traditionally relied on deterministic and probabilistic models for decision-making, lacking the nuanced and intuitive capabilities observed in human cognition. The **Artificial Subconscious** framework introduces a novel conceptual approach inspired by the human subconscious to enhance adaptability, creativity, and intuitive reasoning in AI systems. By processing raw inputs through layers of memory integration, pattern recognition, scenario generation, and evaluation, this framework aims to simulate subconscious cognitive processes. While currently theoretical, this approach offers a foundation for developing AI systems capable of operating effectively in dynamic and uncertain environments.
+Artificial intelligence (AI) systems traditionally rely on deterministic or goal-seeking models to achieve tasks, often lacking the nuanced depth of human-like intuition. The **Artificial Subconscious** is a conceptual framework designed to emulate subconscious processing, acting as an intrusive thought suggestion mechanism rather than a goal-seeking entity. This system generates hypothetical scenarios, evaluates potential outcomes, and introduces creative variability into the decision-making process. 
 
-$$
-\text{AI}_{\text{subconscious}} = f(\text{Noise}, \text{Memory}, \text{Scenarios}) \rightarrow \text{Decision}
-$$
+Operating continuously in the background, the **Artificial Subconscious** pairs with other AI components to enhance adaptability, creativity, and alignment with human-like cognition. While no implementation exists yet, the framework lays the foundation for an innovative layer in AI architecture.
 
 ---
 
-## Introduction
+## **Introduction**
 
-Human cognition operates on multiple levels, with the subconscious playing a critical role in intuitive decision-making, creativity, and adaptive reasoning. Inspired by this, the **Artificial Subconscious** framework proposes a layered architecture designed to mimic these processes. While conventional AI focuses on explicit, conscious reasoning, this framework introduces subconscious-like mechanisms to explore, hypothesize, and balance decision-making processes with creativity and risk awareness.
+Human cognition is multi-layered, with the subconscious playing a critical role in forming intrusive thoughts that can guide conscious decision-making, spark creativity, or mitigate risk. Unlike conventional AI systems that explicitly pursue goals, the **Artificial Subconscious** is envisioned as a passive, always-on process, continuously generating possible scenarios and injecting them into other systems for consideration.
 
-This repo outlines the conceptual design of the framework, providing detailed descriptions of its components and processes. Future work will involve formal coding, experimentation, and validation to quantify the efficacy of the approach.
+This framework is designed to complement existing goal-seeking AI systems, offering valuable insights through its ability to imagine, suggest, and balance possibilities without dictating outcomes. This document outlines the conceptual structure and processes of the **Artificial Subconscious**, emphasizing its theoretical nature and potential integration with broader AI architectures.
 
 ---
 
-## Objective
+## **Objective**
 
-The primary objective of the **Artificial Subconscious** is to maximize a composite goal function that balances adaptability, precision, and intuitive understanding:
+The **Artificial Subconscious** is not goal-driven. Instead, its primary objective is to continuously produce and evaluate hypothetical scenarios that other AI systems can interpret, adopt, or discard. This introduces creative variability and life-like qualities to AI through its persistent and independent processing.
 
-$$
-\text{Goal} = \text{Maximize}( \alpha \cdot \text{Adaptability} + \beta \cdot \text{Decision Precision} + \gamma \cdot \text{Intuitive Understanding} )
-$$
+### **Key Functions**
+
+1. **Scenario Generation:** Generate diverse, hypothetical future scenarios based on noise, memory, and patterns.
+2. **Intrusive Thought Injection:** Continuously present suggestions or "what-if" scenarios to other AI systems.
+3. **Non-Goal-Driven Adaptability:** Operate independently, adapting to changing inputs without explicit directives.
+4. **Enhancement of Decision Systems:** Complement goal-oriented AI systems by offering a pool of ideas and risk-aware alternatives.
 
 ---
 
