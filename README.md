@@ -1,4 +1,4 @@
-# Artificial Subconscious for AGI
+# Adaptive Scenario Synthesis: Advancing Toward Subconscious Processing in AI
 
 ![Cover Image](media/cover_img.png)
 
