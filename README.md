@@ -20,14 +20,16 @@ This framework is designed to complement existing goal-seeking AI systems, offer
 
 ## **Objective**
 
-The ISS framework is not goal-driven. Instead, its primary objective is to continuously produce and evaluate hypothetical scenarios that other AI systems can interpret, adopt, or discard. This introduces creative variability and life-like qualities to AI through its persistent and independent processing.
+The Intrinsic Scenario Synthesis (ISS) framework introduces a novel architectural layer designed to emulate subconscious processing within artificial intelligence systems. Unlike traditional goal-seeking AI models that focus on achieving explicit objectives, ISS operates as a passive, always-on generator of "intrusive thoughts." These thoughts—hypothetical scenarios or alternative possibilities—are injected into connected systems, enriching their decision-making capabilities by offering creative variability, risk awareness, and adaptability.
 
-### **Key Functions**
+### **Key Goals of ISS**
 
-1. **Scenario Generation:** Generate diverse, hypothetical future scenarios based on noise, memory, and patterns.
-2. **Intrusive Thought Injection:** Continuously present suggestions or "what-if" scenarios to other AI systems.
-3. **Non-Goal-Driven Adaptability:** Operate independently, adapting to changing inputs without explicit directives.
-4. **Enhancement of Decision Systems:** Complement goal-oriented AI systems by offering a pool of ideas and risk-aware alternatives.
+1. **Enhancing Decision-Making:** By providing a diverse range of plausible scenarios, ISS allows AI systems to consider options they might not independently generate, thereby improving decision quality.
+2. **Creativity Injection:** ISS introduces unconventional ideas by combining randomness with historical patterns, enabling AI systems to explore novel approaches.
+3. **Risk Mitigation:** By simulating potential pitfalls alongside successes, ISS promotes balanced, informed decisions that account for risks.
+4. **Seamless Integration with Other AI Systems:** ISS is not a standalone decision-maker. It functions as a complementary module, continuously offering scenarios for hypothetical systems to interpret, adopt, or discard.
+
+The primary innovation of ISS lies in its ability to autonomously synthesize scenarios without explicit directives, mimicking the human subconscious as an "idea generator" for higher-order decision systems.
 
 ---
 
