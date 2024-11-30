@@ -1,26 +1,26 @@
-# Adaptive Scenario Synthesis: Advancing Toward Subconscious Processing in AI
+# Intrinsic Scenario Synthesis: Advancing Toward Subconscious Processing in AI
 
 ![Cover Image](media/cover_img.png)
 
 ## **Abstract**
 
-Artificial intelligence (AI) systems traditionally rely on deterministic or goal-seeking models to achieve tasks, often lacking the nuanced depth of human-like intuition. The **Artificial Subconscious** is a conceptual framework designed to emulate subconscious processing, acting as an intrusive thought suggestion mechanism rather than a goal-seeking entity. This system generates hypothetical scenarios, evaluates potential outcomes, and introduces creative variability into the decision-making process. 
+Artificial intelligence (AI) systems traditionally rely on deterministic or goal-seeking models to achieve tasks, often lacking the nuanced depth of human-like intuition. The Intrinsic Scenario Synthesis (ISS) framework is designed to emulate subconscious processing, acting as an intrusive thought suggestion mechanism rather than a goal-seeking entity. This system generates hypothetical scenarios, evaluates potential outcomes, and introduces creative variability into the decision-making process.
 
-Operating continuously in the background, the **Artificial Subconscious** pairs with other AI components to enhance adaptability, creativity, and alignment with human-like cognition. While no implementation exists yet, the framework lays the foundation for an innovative layer in AI architecture.
+Operating continuously in the background, ISS pairs with other AI components to enhance adaptability, creativity, and alignment with human-like cognition. While no implementation exists yet, the framework lays the foundation for an innovative layer in AI architecture.
 
 ---
 
 ## **Introduction**
 
-Human cognition is multi-layered, with the subconscious playing a critical role in forming intrusive thoughts that can guide conscious decision-making, spark creativity, or mitigate risk. Unlike conventional AI systems that explicitly pursue goals, the **Artificial Subconscious** is envisioned as a passive, always-on process, continuously generating possible scenarios and injecting them into other systems for consideration.
+Human cognition is multi-layered, with the subconscious playing a critical role in forming intrusive thoughts that can guide conscious decision-making, spark creativity, or mitigate risk. Unlike conventional AI systems that explicitly pursue goals, the Intrinsic Scenario Synthesis (ISS) framework is envisioned as a passive, always-on process, continuously generating possible scenarios and injecting them into other systems for consideration.
 
-This framework is designed to complement existing goal-seeking AI systems, offering valuable insights through its ability to imagine, suggest, and balance possibilities without dictating outcomes. This document outlines the conceptual structure and processes of the **Artificial Subconscious**, emphasizing its theoretical nature and potential integration with broader AI architectures.
+This framework is designed to complement existing goal-seeking AI systems, offering valuable insights through its ability to imagine, suggest, and balance possibilities without dictating outcomes. This document outlines the conceptual structure and processes of ISS, emphasizing its theoretical nature and potential integration with broader AI architectures.
 
 ---
 
 ## **Objective**
 
-The **Artificial Subconscious** is not goal-driven. Instead, its primary objective is to continuously produce and evaluate hypothetical scenarios that other AI systems can interpret, adopt, or discard. This introduces creative variability and life-like qualities to AI through its persistent and independent processing.
+The ISS framework is not goal-driven. Instead, its primary objective is to continuously produce and evaluate hypothetical scenarios that other AI systems can interpret, adopt, or discard. This introduces creative variability and life-like qualities to AI through its persistent and independent processing.
 
 ### **Key Functions**
 
@@ -33,7 +33,7 @@ The **Artificial Subconscious** is not goal-driven. Instead, its primary objecti
 
 ## **Framework Overview**
 
-The **Artificial Subconscious** operates through a multi-layered architecture, simulating subconscious thought processes. Each layer is designed to process raw inputs, generate potential scenarios, and evaluate their utility and risk before presenting them as suggestions.
+The Intrinsic Scenario Synthesis (ISS) framework operates through a multi-layered architecture, simulating subconscious thought processes. Each layer processes raw inputs, generates potential scenarios, and evaluates their utility and risk before presenting them as suggestions.
 
 ---
 
@@ -185,7 +185,7 @@ $$
 
 ---
 
-### **Integration into the Artificial Subconscious Framework**
+### **Integration into the ISS Framework**
 
 - **Input:** Layer 5 receives scored scenarios from Layer 4, which have already been evaluated for reward, risk, and historical success.
 - **Processing:** It recalculates scores by integrating routine success ($H_{\text{success}}$) and diversity ($D_f$) into the scoring process.
@@ -213,7 +213,7 @@ The final output reflects a mix of high-reward routines and creative alternative
 
 ### **Summary**
 
-Layer 5 acts as a decision filter that refines the set of hypothetical scenarios into an actionable output. By integrating routine success into the scoring process alongside reward and diversity, it emulates human-like reasoning patterns. This ensures the Artificial Subconscious maintains a balance between valuing proven routines and promoting creative alternatives, enhancing adaptability, creativity, and alignment with human-like thought processes.
+Layer 5 acts as a decision filter that refines the set of hypothetical scenarios into an actionable output. By integrating routine success into the scoring process alongside reward and diversity, it emulates human-like reasoning patterns. This ensures the ISS maintains a balance between valuing proven routines and promoting creative alternatives, enhancing adaptability, creativity, and alignment with human-like thought processes.
 
 ---
 
@@ -243,10 +243,10 @@ Layer 5 acts as a decision filter that refines the set of hypothetical scenarios
 
 ## **Conclusion**
 
-The **Artificial Subconscious** is a conceptual framework that introduces a passive, background layer for generating and injecting intrusive thought-like suggestions into broader AI systems. Its non-goal-driven nature makes it uniquely suited to enhancing creativity, adaptability, and risk awareness in dynamic environments.
+The **Intrinsic Scenario Synthesis** is a conceptual framework that introduces a passive, background layer for generating and injecting intrusive thought-like suggestions into broader AI systems. Its non-goal-driven nature makes it uniquely suited to enhancing creativity, adaptability, and risk awareness in dynamic environments.
 
 This framework is theoretical and has not yet been implemented. Future work will focus on coding, experimentation, and integration to validate its potential for bridging the gap between deterministic computation and human-like intuition.
 
 ---
 
-*Note: This document focuses on the conceptual layers, processes, expectations, examples, results, and associated goals of the Artificial Subconscious framework. Technical implementation details will be developed and documented in future work.*
+*Note: This document focuses on the conceptual layers, processes, expectations, examples, results, and associated goals of the ISS framework. Technical implementation details will be developed and documented in future work.*
