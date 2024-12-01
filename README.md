@@ -52,6 +52,8 @@ The Intrinsic Scenario Synthesis framework operates through a multi-layered arch
 
 ### **Layer 1: Noise and Memory Integration**
 
+![Layer1](media/Layer1_temp.png)
+
 **Purpose:** Establish a foundational substrate for subconscious activity by integrating random variability (noise) with memory, simulating the spontaneous and associative nature of subconscious thought.
 
 #### **Key Functions**
