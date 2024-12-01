@@ -38,10 +38,6 @@ The primary objective of the Intrinsic Scenario Synthesis (ISS) framework is to 
    - **Predictive Awareness:** By simulating potential pitfalls alongside successes, ISS promotes balanced decisions that account for risks.
    - **Preventative Strategies:** Helps in identifying and mitigating risks before they materialize.
 
-4. **Seamless Integration with Other AI Systems:**
-   - **Complementary Functionality:** ISS enhances existing AI systems without replacing or dictating their processes.
-   - **Interoperability:** Designed to be easily integrated, ISS can interface with various AI architectures, feeding them valuable insights.
-
 The ISS framework's innovation lies in its ability to autonomously synthesize scenarios without explicit directives, acting as an idea generator that supplements higher-order decision systems.
 
 ---
@@ -118,11 +114,6 @@ $$
 S_{\text{next}} = S_{\text{current}} + \Delta S_{\text{learning}} + \eta_{\text{random}}
 $$
 
-- \( S_{\text{next}} \): Next scenario generated.
-- \( S_{\text{current}} \): Current scenario state.
-- \( \Delta S_{\text{learning}} \): Adjustments based on learning and feedback.
-- \( \eta_{\text{random}} \): Random noise component.
-
 **Output:** A diverse set of hypothetical scenarios prepared for evaluation.
 
 ---
@@ -142,27 +133,6 @@ $$
    - **Historical Success Metrics:** Incorporates past performance data to inform likelihood of success.
    - **Risk Assessment:** Analyzes potential downsides or hazards associated with each scenario.
 
-**Scenario Evaluation Formula:**
-
-$$
-\text{Scenario Score} = \alpha \times \text{Benefit} - \gamma \times \text{Risk}
-$$
-
-- **Scenario Score (\( SS \))**: The overall score assigned to a scenario.
-- **Benefit (\( B \))**: Quantitative measure of potential positive outcomes.
-- **Risk (\( R \))**: Quantitative measure of potential negative outcomes.
-- \( \alpha \), \( \gamma \): Weighting coefficients that adjust the importance of benefits and risks.
-
-**Scenario Ranking Formula:**
-
-$$
-R_{\text{rank}} = \frac{SS \times H_{\text{success}}}{1 + R_{\text{risk}}}
-$$
-
-- \( R_{\text{rank}} \): Final ranking score.
-- \( H_{\text{success}} \): Historical success factor.
-- \( R_{\text{risk}} \): Normalized risk score.
-
 **Output:** A ranked list of scenarios with associated scores, facilitating informed selection.
 
 ---
@@ -174,9 +144,9 @@ $$
 #### **Key Functions**
 
 1. **Selection Criteria:**
-   - **Reward Potential (\( R(S_i) \))**: Evaluates the expected benefits of each scenario.
-   - **Routine Success Factor (\( H_{\text{success}} \))**: Prioritizes scenarios with a track record of success.
-   - **Diversity Factor (\( D_f \))**: Ensures inclusion of unique or novel scenarios.
+   - **Reward Potential**: Evaluates the expected benefits of each scenario.
+   - **Routine Success Factor**: Prioritizes scenarios with a track record of success.
+   - **Diversity Factor**: Ensures inclusion of unique or novel scenarios.
 
 2. **Weighted Scoring:**
    - **Dynamic Adjustment:** Allows for real-time tuning of weighting coefficients based on system objectives.
@@ -185,22 +155,6 @@ $$
 3. **Thresholding and Filtering:**
    - **Minimum Standards:** Applies thresholds to exclude scenarios below a certain score.
    - **Redundancy Penalization:** Reduces the priority of overly similar, less effective scenarios.
-
-**Enhanced Final Selection Score Formula:**
-
-$$
-S_{\text{final}} = \frac{R(S_i) + \alpha H_{\text{success}} - \gamma R_k(S_i)}{1 + \beta D_f}
-$$
-
-**Parameters:**
-
-- \( S_{\text{final}} \): Final composite score of scenario \( S_i \).
-- \( R(S_i) \): Reward or benefit score.
-- \( H_{\text{success}} \): Historical success metric.
-- \( R_k(S_i) \): Risk score, with \( \gamma \) as the risk weighting coefficient.
-- \( \alpha \): Weighting factor for routine success.
-- \( \beta \): Weighting factor for diversity.
-- \( D_f \): Diversity factor, quantifying scenario uniqueness.
 
 **Output:** A curated set of scenarios, optimized for actionability and ready for integration into the decision-making processes of connected AI systems.
 
