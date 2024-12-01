@@ -38,8 +38,10 @@ class ISSModule:
         for idx, scenario in enumerate(scenarios):
             print(f"Scenario {idx + 1}: {scenario}")
 
-        # Append scenarios to memory buffer
-        self.memory_buffer.extend(scenarios)
+            # Quality check (simple example: minimum length)
+            if len(scenario.split()) >= 5:
+                self.memory_buffer.append(scenario)
+
         # Maintain memory buffer size
         if len(self.memory_buffer) > self.memory_size:
             self.memory_buffer = self.memory_buffer[-self.memory_size:]
@@ -90,8 +92,8 @@ class ISSModule:
         for idx in range(num_scenarios):
             # Create a refined prompt with clear instructions
             prompt = (
-                f"Given the input: \"{input_text}\", and considering factors like \"{', '.join(influence_keywords)}\", "
-                "generate a coherent and relevant scenario."
+                f"Instruction: Given the input: \"{input_text}\", and considering factors like \"{', '.join(influence_keywords)}\", "
+                "generate a coherent and relevant scenario. Scenario:"
             )
 
             # Generate a scenario using the LLM
@@ -193,9 +195,12 @@ class InfluenceLogitsProcessor(LogitsProcessor):
         """
         Modifies the scores by adding the influence vector scaled by the influence weight.
         """
-        # Expand influence vector to match the batch size and vocabulary
-        influence = self.influence_vector.unsqueeze(0).expand_as(scores)
-        scores += self.influence_weight * influence
+        # Apply a softmax to the influence vector to ensure it's a probability distribution
+        influence = torch.softmax(self.influence_vector, dim=-1)
+        # Scale the influence vector
+        influence = influence * self.influence_weight
+        # Add the influence to the logits
+        scores += influence
         return scores
 
 
