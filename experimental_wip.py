@@ -2,7 +2,7 @@ import time
 import logging
 from dataclasses import dataclass
 from collections import deque
-from typing import List, Dict, Optional, Tuple
+from typing import List, Tuple, Optional
 
 import torch
 import numpy as np
@@ -77,13 +77,16 @@ class NoiseLayer:
             prompt = f"Paraphrase the following sentence:\n\"{input_text}\"\nParaphrase:"
             # Encode prompt
             input_ids = self.tokenizer.encode(prompt, return_tensors='pt').to(self.config.device)
+            attention_mask = torch.ones_like(input_ids)
+
             # Generate paraphrase
             outputs = self.model.generate(
                 input_ids=input_ids,
+                attention_mask=attention_mask,
                 max_length=input_ids.size(1) + 50,
                 num_return_sequences=1,
                 do_sample=True,
-                top_p=0.95,
+                top_p=0.9,
                 temperature=0.7,
                 pad_token_id=self.tokenizer.eos_token_id,
                 eos_token_id=self.tokenizer.eos_token_id,
@@ -125,24 +128,54 @@ class ScenarioGenerator:
         scenarios = []
         for variation in variations:
             # Generate scenarios using the language model
-            prompt = f"{variation}\n\nPossible scenarios include:\n1."
+            prompt = (
+                f"Based on the following situation:\n\"{variation}\"\n\n"
+                "List possible scenarios that could happen next:\n"
+                "1."
+            )
             input_ids = self.tokenizer.encode(prompt, return_tensors='pt').to(self.config.device)
+            attention_mask = torch.ones_like(input_ids)
+
             outputs = self.model.generate(
                 input_ids=input_ids,
-                max_length=input_ids.size(1) + 50,
+                attention_mask=attention_mask,
+                max_length=input_ids.size(1) + 150,
                 num_return_sequences=1,
                 do_sample=True,
-                top_p=0.95,
+                top_p=0.9,
                 temperature=0.7,
                 pad_token_id=self.tokenizer.eos_token_id,
                 eos_token_id=self.tokenizer.eos_token_id,
                 no_repeat_ngram_size=2,
             )
-            scenario_text = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
-            # Extract the generated scenario
-            generated_scenario = scenario_text[len(prompt):].split('\n')[0].strip()
-            scenarios.append(generated_scenario)
-        return scenarios
+            generated_text = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+            # Extract scenarios from the generated text
+            lines = generated_text[len(prompt):].split('\n')
+            count = 1
+            current_scenario = ""
+            for line in lines:
+                line = line.strip()
+                if line.startswith(f"{count}."):
+                    # Save the previous scenario if it exists
+                    if current_scenario:
+                        scenarios.append(current_scenario.strip())
+                        if len(scenarios) >= num_scenarios:
+                            break
+                    # Start a new scenario
+                    current_scenario = line[line.find('.') + 1:].strip()
+                    count += 1
+                elif line.startswith(tuple(f"{i}." for i in range(1, num_scenarios + 1))):
+                    # Handles cases where numbering skips or repeats
+                    current_scenario = line[line.find('.') + 1:].strip()
+                    count = int(line[0]) + 1
+                elif line:
+                    # Continue building the current scenario
+                    current_scenario += ' ' + line
+            # Add the last scenario if it exists
+            if current_scenario and len(scenarios) < num_scenarios:
+                scenarios.append(current_scenario.strip())
+        return scenarios[:num_scenarios]
+
 
 class ScenarioEvaluator:
     """
@@ -271,34 +304,29 @@ class ISS:
         logger.info("Reset all memories")
 
 def generate_final_output(input_text: str, selected_scenarios: List[str], tokenizer, model, config) -> str:
-    prompt = f"{input_text}\n\nConsidering the following scenarios:\n"
+    prompt = f"{input_text}\n\nConsidering these possible scenarios:\n"
     for idx, scenario in enumerate(selected_scenarios, 1):
         prompt += f"{idx}. {scenario}\n"
-    prompt += "\nContinuation:\n"
+    prompt += "\nWrite a coherent continuation of the story that incorporates one or more of these scenarios."
 
     input_ids = tokenizer.encode(prompt, return_tensors='pt').to(config.device)
-    # Create attention mask
     attention_mask = torch.ones_like(input_ids)
 
-    # Generate final output using sampling
     outputs = model.generate(
         input_ids=input_ids,
         attention_mask=attention_mask,
-        max_length=input_ids.size(1) + 100,
+        max_length=input_ids.size(1) + 200,
         num_return_sequences=1,
-        no_repeat_ngram_size=2,
-        early_stopping=True,
+        do_sample=True,
         temperature=0.7,
+        top_p=0.9,
         pad_token_id=tokenizer.eos_token_id,
-        do_sample=True,  # Enable sampling
-        top_p=0.95,      # Use nucleus sampling
+        no_repeat_ngram_size=2,
     )
 
     generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
     output_text = generated_text[len(prompt):].strip()
     return output_text
-
-
 
 def test_scenario_1(iss, tokenizer, model, config):
     """
