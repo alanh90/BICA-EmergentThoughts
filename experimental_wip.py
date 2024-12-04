@@ -1,14 +1,4 @@
-"""
-Intrinsic Scenario Synthesis (ISS) System
-
-This implementation includes:
-- ISS architecture with noise and memory integration
-- Scenario generation, evaluation, and decoding into text
-- Integration with a Language Model (LLM) to generate outputs influenced by the ISS-generated scenarios
-"""
-
 import time
-import os
 import logging
 from dataclasses import dataclass
 from collections import deque
@@ -18,9 +8,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
-
-# Suppress the symlink warning on Windows
-os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
@@ -281,7 +268,7 @@ class ScenarioEvaluator(nn.Module):
             weights[2] * coherence_scores
         )  # [batch_size, seq_len]
 
-        # Select top scenarios
+        # Select top scenarios based on combined scores
         k = min(3, seq_len)
         scores, indices = torch.topk(combined_scores, k=k, dim=1)  # [batch_size, k]
 
@@ -302,6 +289,8 @@ class ScenarioEvaluator(nn.Module):
 
 class ScenarioDecoder(nn.Module):
     """
+    Layer 5: Surface-Level Scenario Selection
+
     Decoder Network to Generate Scenario Texts from ISS Embeddings
     """
 
@@ -353,10 +342,6 @@ class ScenarioDecoder(nn.Module):
                 scenario_texts.append(text.strip())
 
         return scenario_texts
-
-
-
-
 
 class ISS(nn.Module):
     """
@@ -538,22 +523,6 @@ class ISS(nn.Module):
         self.memory_timestamps.clear()
         logger.info("Reset all memories")
 
-    # Additional methods for feedback
-    def apply_user_feedback(self, feedback: str):
-        """
-        Adjust importance weights based on user feedback.
-
-        Args:
-            feedback: User input, "+" for positive, "-" for negative.
-        """
-        # Simple implementation: Adjust importance threshold
-        if feedback == '+':
-            self.importance_threshold = max(0.0, self.importance_threshold - 0.05)
-            logger.info(f"Increased sensitivity. New importance threshold: {self.importance_threshold}")
-        elif feedback == '-':
-            self.importance_threshold = min(1.0, self.importance_threshold + 0.05)
-            logger.info(f"Decreased sensitivity. New importance threshold: {self.importance_threshold}")
-
 def generate_text_with_influence(input_text: str, scenario_texts: List[str], tokenizer, model, config) -> str:
     """
     Generate text using the LLM influenced by ISS-generated scenario texts.
@@ -593,10 +562,74 @@ def generate_text_with_influence(input_text: str, scenario_texts: List[str], tok
 
     return output_text
 
+def test_scenario_1(iss, scenario_decoder, bert_tokenizer, bert_model, gpt_tokenizer, gpt_model, config):
+    """
+    Test case 1: A man runs towards the edge of a building
+    Expected output should relate to him falling or preventing the fall.
+    """
+    text_input = "A man runs towards the edge of a building."
+    bert_inputs = bert_tokenizer(text_input, return_tensors='pt').to(config.device)
 
+    with torch.no_grad():
+        bert_outputs = bert_model(**bert_inputs)
+
+    input_states = bert_outputs.last_hidden_state
+
+    # Process input through ISS
+    results = iss(input_states, return_intermediates=True)
+
+    # Decode scenarios
+    scenario_embeddings = results['scenarios']
+    scenario_texts = scenario_decoder(scenario_embeddings)
+
+    # Generate influenced text
+    generated_text = generate_text_with_influence(text_input, scenario_texts, gpt_tokenizer, gpt_model, config)
+
+    print("\nTest Scenario 1 Output:")
+    print("-" * 40)
+    print(f"Input: {text_input}")
+    print("\nGenerated Scenarios:")
+    for idx, scenario in enumerate(scenario_texts, 1):
+        print(f"{idx}. {scenario}")
+
+    print("\nFinal Output:")
+    print(generated_text)
+
+def test_scenario_2(iss, scenario_decoder, bert_tokenizer, bert_model, gpt_tokenizer, gpt_model, config):
+    """
+    Test case 2: A man sees $5000 on the ground that he can take for free with no consequences
+    Expected output should reflect the benefit of picking up the money.
+    """
+    text_input = "A man sees $5000 on the ground that he can take for free with no consequences."
+    bert_inputs = bert_tokenizer(text_input, return_tensors='pt').to(config.device)
+
+    with torch.no_grad():
+        bert_outputs = bert_model(**bert_inputs)
+
+    input_states = bert_outputs.last_hidden_state
+
+    # Process input through ISS
+    results = iss(input_states, return_intermediates=True)
+
+    # Decode scenarios
+    scenario_embeddings = results['scenarios']
+    scenario_texts = scenario_decoder(scenario_embeddings)
+
+    # Generate influenced text
+    generated_text = generate_text_with_influence(text_input, scenario_texts, gpt_tokenizer, gpt_model, config)
+
+    print("\nTest Scenario 2 Output:")
+    print("-" * 40)
+    print(f"Input: {text_input}")
+    print("\nGenerated Scenarios:")
+    for idx, scenario in enumerate(scenario_texts, 1):
+        print(f"{idx}. {scenario}")
+
+    print("\nFinal Output:")
+    print(generated_text)
 
 def main():
-    """Example usage of the ISS system with LLM integration."""
+    """Main function to initialize components and run tests."""
     # Create configuration
     config = ISSConfig()
 
@@ -612,7 +645,7 @@ def main():
     print("BERT tokenizer and model loaded.")
 
     # Initialize GPT-Neo for scenario decoding and final text generation
-    print("Loading GPT-Neo tokenizer and model for final text generation...")
+    print("Loading GPT-Neo tokenizer and model...")
     gpt_tokenizer = AutoTokenizer.from_pretrained('EleutherAI/gpt-neo-1.3B')
     gpt_model = AutoModelForCausalLM.from_pretrained('EleutherAI/gpt-neo-1.3B').to(config.device)
     gpt_tokenizer.pad_token = gpt_tokenizer.eos_token  # Ensure padding token is set
@@ -623,48 +656,11 @@ def main():
     scenario_decoder = ScenarioDecoder(config, config.device)
     print("Scenario Decoder initialized.")
 
-    # Main loop
-    while True:
-        print("Entering main loop.")
-        # Prompt user for input
-        text_input = input("\nPlease enter some context or any input (type 'exit' to quit): ")
-        if text_input.lower() == 'exit':
-            break
+    # Run Test Scenario 1
+    test_scenario_1(iss, scenario_decoder, bert_tokenizer, bert_model, gpt_tokenizer, gpt_model, config)
 
-        # Use BERT tokenizer and model to get embeddings
-        bert_inputs = bert_tokenizer(text_input, return_tensors='pt').to(config.device)
-
-        with torch.no_grad():
-            bert_outputs = bert_model(**bert_inputs)
-
-        # Get the embeddings
-        input_states = bert_outputs.last_hidden_state  # [batch_size, seq_len, hidden_size]
-
-        # Get memory states from ISS
-        memory_states = iss.get_memory_states()
-
-        # Process input through ISS
-        results = iss(input_states, memory_states=memory_states, return_intermediates=True)
-
-        # Get the ISS-generated scenario embeddings
-        scenario_embeddings = results['scenarios']  # [batch_size, num_selected, hidden_size]
-
-        # Decode the scenario embeddings into text using the decoder
-        scenario_texts = scenario_decoder(scenario_embeddings)
-
-        # Influence the LLM using the scenario texts
-        generated_text = generate_text_with_influence(text_input, scenario_texts, gpt_tokenizer, gpt_model, config)
-
-        # Display the output
-        print("\nGenerated Output:")
-        print("-" * 40)
-        print(generated_text)
-
-        # Ask for user feedback
-        feedback = input("\nProvide feedback ('+' to reinforce, '-' to penalize, or press Enter to continue): ").strip()
-        if feedback in ('+', '-'):
-            iss.apply_user_feedback(feedback)
-
+    # Run Test Scenario 2
+    test_scenario_2(iss, scenario_decoder, bert_tokenizer, bert_model, gpt_tokenizer, gpt_model, config)
 
 if __name__ == "__main__":
     main()
