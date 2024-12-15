@@ -1,4 +1,4 @@
-[# Emergent Cognition Framework (ECF): A General Architecture for Creative Synthesis in Artificial Intelligence
+# Emergent Cognition Framework (ECF): A General Architecture for Creative Synthesis in Artificial Intelligence
 
 <div align="center">
   <img src="media/ECF_Cover_2.gif" alt="Cover Image">
