@@ -14,6 +14,7 @@ import openai
 from dotenv import load_dotenv
 import re
 import datasets
+import csv
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API")
@@ -181,6 +182,7 @@ class Layer3(nn.Module):
         """Generates scenarios using OpenAI's gpt-3.5-turbo."""
         start = time.time()
         scenarios = []
+
         # 2. Scenario Generation:
         prompt = (
             f"Based on the following situation: \"{input_text}\", and the abstract concepts: {concepts}, "
@@ -205,6 +207,7 @@ class Layer3(nn.Module):
         O_3 = scenarios
         logger.info(f"Layer 3 (Scenario Generator): Scenarios Generated in {time.time() - start:.4f}s")
         return O_3
+
 
 class Layer4(nn.Module):
     """Layer 4: Scenario Evaluation and Ranking."""
@@ -282,7 +285,6 @@ class HECF(nn.Module):
 
         return O_5
 
-
 def generate_final_output(input_text: str, selected_scenarios: List[str], tokenizer, model, config, concepts:List[str]) -> str:
     """Generates the final output for the combined system using OpenAI."""
     prompt = f"Given the story, \"{input_text}\", the following concepts: {concepts}, and these possible scenarios that could happen next:\n"
@@ -300,6 +302,20 @@ def generate_final_output(input_text: str, selected_scenarios: List[str], tokeni
     return output_text
 
 
+def load_rocstories_data(file_path, num_samples=1):
+    """Loads data from a ROCStories file and gets only the first few items, and returns the data and the answer"""
+    stories = []
+    answers = []
+    with open(file_path, 'r', encoding='utf-8') as file:
+         csv_reader = csv.reader(file)
+         next(csv_reader)  # skip the header
+         for i, row in enumerate(csv_reader):
+              if i > num_samples-1:
+                 break
+              stories.append(" ".join(row[:5])) # the first five are the sentences of the stories.
+              answers.append(row[7])
+    return stories, answers
+
 def main():
      # Setup device
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -314,12 +330,13 @@ def main():
     print("GPT-Neo tokenizer loaded.")
     # Initialize HECF
     hecf = HECF(config, tokenizer, device)
-      # Load the ROCStories dataset
-    roc_stories = datasets.load_dataset('story_cloze', '2016', trust_remote_code=True) # added this to trust custom code
+     # Load the ROCStories dataset
+    file_path = "test/StoryClozeTest/cloze_test_val__spring2016 - cloze_test_ALL_val.csv" # place file in the folder of the python script
+    roc_stories, answers = load_rocstories_data(file_path, num_samples = 1) # use the first story in the set
 
     # Take the first item as an example
-    story = roc_stories['train'][0]['input_sentence_1'] + " " + roc_stories['train'][0]['input_sentence_2'] + " " + roc_stories['train'][0]['input_sentence_3'] + " " + roc_stories['train'][0]['input_sentence_4']
-    text_input = story
+    text_input = roc_stories[0]
+    correct_answer = answers[0]
      # Process the data through HECF and get top results
     selected_scenarios = hecf(text_input)
     # generate the final output by passing top results into the LLM to produce final output
@@ -346,6 +363,7 @@ def main():
     print(f"\nAbstract Concepts: {concepts}")
     print("\nFinal Output:")
     print(final_output)
+    print(f"\nExpected Output: The correct answer is ending number {correct_answer} in the dataset. The correct story is in the dataset but will not be shown here since our purpose is to evaluate the generated text")
 
 
 if __name__ == "__main__":
