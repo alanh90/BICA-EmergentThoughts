@@ -1,5 +1,5 @@
 # Emergent Thought Framework (ETF)
-*A General Architecture for Creative Thought Synthesis in Artificial Intelligence*
+*A potential integral component of the Bicameral AGI Project: A Framework for Creative Thought Synthesis in Artificial Intelligence*
 
 <div align="center">  <img src="media/coverimg.png" alt="Cover Image"></div>
 
