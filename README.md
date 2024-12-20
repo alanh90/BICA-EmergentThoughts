@@ -1,6 +1,10 @@
 # Emergent Thought Framework (ETF)
 *A potential integral component of the Bicameral AGI Project: A Framework for Creative Thought Synthesis in Artificial Intelligence*
 
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/alanh90/BICA-EmergentThoughts)
+![GitHub last commit](https://img.shields.io/github/last-commit/alanh90/BICA-EmergentThoughts)
+![GitHub License](https://img.shields.io/github/license/alanh90/BICA-EmergentThoughts)
+
 <div align="center">  <img src="media/coverimg.png" alt="Cover Image"></div>
 
 ## Abstract
